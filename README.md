@@ -107,3 +107,77 @@ Expected Outcomes
     Message Storage and Retrieval: Trees or hash tables could offer the best balance between storage efficiency and retrieval speed, especially for large datasets.
     Real-Time Updates: WebSockets combined with event-driven data structures like queues can ensure low-latency message delivery and updates.
     Conversation List Management: Trees or hash tables can efficiently handle large conversation lists, with strategies for sorting, filtering, and indexing to improve the user experience.
+
+    Task 1: Identifying Key Operations
+
+The provided algorithm is a basic implementation of the Bubble Sort algorithm. Let's break down its key operations:
+
+    Outer Loop (for i in range(n)):
+        Iterates over each element in the array.
+        Runs n times where n is the number of elements in the array.
+
+    Inner Loop (for j in range(0, n-i-1)):
+        Iterates over the unsorted portion of the array.
+        The range decreases by one with each pass (i.e., first it runs n-1 times, then n-2 times, and so on).
+
+    Comparison (if arr[j] > arr[j+1]):
+        Compares adjacent elements.
+        Key operation that determines whether a swap is necessary.
+
+    Swap Operation (arr[j], arr[j+1] = arr[j+1], arr[j]):
+        Swaps two elements if they are in the wrong order.
+
+Task 2: Calculating Big O Complexity
+
+To analyze the Big O complexity, we need to focus on how the number of operations grows as the input size n increases.
+
+Outer Loop:
+
+    Runs n times.
+
+Inner Loop:
+
+    On the first pass, it runs n-1 times.
+    On the second pass, it runs n-2 times.
+    And so on, until it runs 1 time.
+
+Total Number of Comparisons:
+
+    The number of comparisons is the sum of the first n-1 natural numbers:
+    Total Comparisons=(n−1)+(n−2)+⋯+1=n(n−1)2
+    Total Comparisons=(n−1)+(n−2)+⋯+1=2n(n−1)​
+
+Since Big O notation focuses on the upper bound and ignores constant factors and lower-order terms, this simplifies to:
+O(n2)
+O(n2)
+
+Swap Operations:
+
+    In the worst case (reverse-sorted array), the swap operation is performed for each comparison, making the worst-case time complexity also O(n2)O(n2).
+
+Overall Big O Complexity:
+
+    Best Case: O(n)O(n) (when the array is already sorted, the algorithm performs only one pass).
+    Worst Case: O(n2)O(n2) (when the array is reverse sorted).
+
+Task 3: Efficiency Analysis
+
+Efficiency Aspects:
+
+    Time Complexity: As identified, the worst-case and average-case time complexities are O(n2)O(n2). This makes Bubble Sort inefficient for large input sizes.
+    Space Complexity: The algorithm uses O(1)O(1) extra space, making it an in-place sorting algorithm.
+
+Potential Improvements:
+
+    Optimized Bubble Sort:
+        After each pass, the largest element is correctly positioned at the end. If no swaps are made during a pass, the algorithm can terminate early, which improves the best-case time complexity.
+
+    Alternative Algorithms:
+        Merge Sort: Has a time complexity of O(nlog⁡n)O(nlogn) and is more efficient for larger arrays.
+        Quick Sort: Also has an average time complexity of O(nlog⁡n)O(nlogn), though its worst case is O(n2)O(n2).
+        Heap Sort: Another O(nlog⁡n)O(nlogn) algorithm that is efficient for larger datasets.
+
+Conclusion:
+
+    While Bubble Sort is simple to understand and implement, its O(n2)O(n2) time complexity makes it impractical for large input sizes.
+    For better performance, especially with large datasets, algorithms like Merge Sort, Quick Sort, or Heap Sort are recommended due to their more favorable time complexities.
